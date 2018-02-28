@@ -1,3 +1,3 @@
 <?php
 
-var_dump($_COOKIE['meunome']);
+var_dump(session_save_path(__DIR__.'/../sessions'));
