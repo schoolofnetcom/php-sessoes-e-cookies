@@ -2,17 +2,15 @@
 
 session_start();
 
-/*
-$_SESSION['usuario'] = [
-    'nome' => 'Erik',
-    'idade' => 32,
-    'ativo' => true,
-    'rate' => 4.3
-];
-*/
+$user = $_SESSION['user'] ?? null;
 
-// unset($_SESSION['usuario']);
+if (!$user) {
+    header('location: login.php');
+    exit;
+}
 
-$_SESSION['usuario'] = 'asd';
-$_SESSION['ultimo-acesso'] = '12-12-2012';
-$_SESSION['id-user'] = 3;
+?>
+
+<h1>Página protegida</h1>
+
+<p>Olá, <?php echo $user['email'];?></p>
